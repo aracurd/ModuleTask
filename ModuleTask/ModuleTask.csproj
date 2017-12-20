@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Card.cs" />
+    <Compile Include="Classes\Deck.cs" />
+    <Compile Include="Classes\DeckMix.cs" />
+    <Compile Include="Classes\GameLogics.cs" />
+    <Compile Include="Enums\CardEnum.cs" />
+    <Compile Include="Enums\SuitEnum.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
