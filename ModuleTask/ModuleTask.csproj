@@ -47,6 +47,8 @@
     <Compile Include="Classes\Deck.cs" />
     <Compile Include="Classes\DeckMix.cs" />
     <Compile Include="Classes\GameLogics.cs" />
+    <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Parsers\TableParser.cs" />
     <Compile Include="Enums\CardEnum.cs" />
     <Compile Include="Enums\SuitEnum.cs" />
     <Compile Include="Program.cs" />

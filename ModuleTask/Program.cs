@@ -1,47 +1,54 @@
-﻿using System.Collections.Generic;
-using ModuleTask.Classes;
+﻿using ModuleTask.Classes;
 using static System.Console;
 
 namespace ModuleTask
 {
-    class Program
+    sealed class Program
     {
+        static bool play = true;
+
         static void Main(string[] args)
         {
-            var mix = new DeckMix();
-            var i = 0;
-            var deck = new Deck();
-            SortedList<int, Card> sortedDeck = new SortedList<int, Card>();
-            foreach (var item in deck.DeckDictionary)
+            while (play)
             {
-                i++;
-               
-                    WriteLine($"{item.CardSuits} {item.CardName} \t{item.CardValue}");
-                if (i==13)
+                //Конструктор с созможностью ваыбора, использовать ли парсер
+                //Чтобы выводилось без парсера измените "use" на false или удалите параметр
+                var gLogic = new GameLogics(use:true);
+                Title = "Blackjack";
+
+                StartMessage();
+
+                var val = ReadLine();
+
+                if (val == "y") 
                 {
-                    WriteLine();
-                    i = 0;
+                    Clear();
+                    gLogic.StartGame();
+                    RptGame();
+                    Clear();
                 }
-
-            }
-
-            mix.DeckMixing(deck.DeckDictionary, ref sortedDeck);
-            ReadLine();
-
-            foreach (var item in sortedDeck)
-            {
-
-                i++;
-
-                WriteLine($"{item.Value.CardSuits} {item.Value.CardName} \t{item.Value.CardValue}");
-                if (i == 13)
+                else
                 {
-                    WriteLine();
-                    i = 0;
+                    play = false;
+                    return;
                 }
             }
+        }
 
-            ReadLine();
+        public static void StartMessage()
+        {
+            WriteLine($"Hallo in {Title}");
+            WriteLine($"Short rules of {Title}:");
+            WriteLine($"There are 36 cards in the deck. \nHigh card points: Jack - 2, Queen - 3, King - 4, Ace - 11. \nThe other cards according to their values.\n");
+            WriteLine("You wont to play? \"y\" - to play, \"n\" - to exit:");
+        }
+
+        public static void RptGame()
+        {
+            WriteLine("\nWant to play more? Enter: Play - y, Close -n");
+            var rptVal = ReadLine();
+            if (rptVal == "n")
+                play = false;
         }
     }
 }

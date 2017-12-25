@@ -3,15 +3,21 @@ using System.Collections.Generic;
 
 namespace ModuleTask.Classes
 {
-    public  class DeckMix
+    /// <summary>
+    /// The class that performs the function of mixing decks
+    /// </summary>
+    public class DeckMix
     {
-       
-        readonly Random rundom = new Random();
-        public  void DeckMixing<TValue>(IList<TValue> dictionary, ref SortedList<int, TValue> SortedDeck)
+        private readonly Random random = new Random();
+        /// <summary>
+        /// Function thet mixing a decks
+        /// </summary>
+        /// <param name="dictionary">Starting sorted deck</param>
+        /// <param name="sortedDeck">Returned mixed deck</param>
+        public void MixingDeck<TValue>(IList<TValue> dictionary, SortedList<int, TValue> sortedDeck)
         {
             foreach (var item in dictionary)
-                SortedDeck.Add(rundom.Next(), item);
-            
+                sortedDeck.Add(random.Next(), item);            
         }
     }
 }

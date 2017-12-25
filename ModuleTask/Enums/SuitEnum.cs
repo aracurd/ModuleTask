@@ -2,7 +2,7 @@
 {
     public enum Suits
     {
-        Heat,
+        Heart,
         Diamond,
         Club,
         Spade
